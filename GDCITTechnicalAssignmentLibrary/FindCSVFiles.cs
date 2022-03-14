@@ -13,9 +13,8 @@ namespace GDCITTechnicalAssignmentLibrary
         //Retrieve Directory to search
         public static string GetCSVDirectory()
         {
-            string dir = Directory.GetCurrentDirectory();
-            dir = dir.Substring(0, dir.Length - 9) + "CSVFiles";
-            return dir;
+            string filePath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "\\CSVFiles";
+            return filePath;
         }
 
         //Retrieves Full file list within the directory given.
