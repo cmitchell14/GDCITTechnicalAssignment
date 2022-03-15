@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GDCITTechnicalAssignmentLibrary;
 using GDCITTechnicalAssignmentLibrary.Services;
 
@@ -16,8 +12,7 @@ namespace GDCITTechnicalAssignment
             try
             {
                 //Instantiating needed variables.
-                string directory = FindCSVFiles.GetCSVDirectory();
-                List<string> fullFileList = FindCSVFiles.GetFileList(directory);
+                List<string> fullFileList = FindCSVFiles.GetFileList(FindCSVFiles.GetCSVDirectory());
                 string userSearch = "";
                 
                 //Capturing user input for the search term. In a loop to retry submission if file not found.
@@ -31,7 +26,7 @@ namespace GDCITTechnicalAssignment
                 userSearch = CSVRead.UserSearchConvert(userSearch);
 
                 //Retrieve Users from the searched file.
-                List<CsvFileUser> userList = CSVRead.RetrieveFileUsers(userSearch, fullFileList, directory);
+                List<CsvFileUser> userList = CSVRead.RetrieveFileUsers(userSearch, fullFileList, FindCSVFiles.GetCSVDirectory());
 
                 //Ask user if they would like to see a full user list before email validation.
                 FindCSVFiles.GetUserList(userList);
@@ -60,7 +55,6 @@ namespace GDCITTechnicalAssignment
             {
                 throw ex;
             }
-
         }
     }
 }
