@@ -43,10 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CsvFileUser.cs" />
-    <Compile Include="CSVRead.cs" />
+    <Compile Include="Models\CsvFileUser.cs" />
+    <Compile Include="Services\EmailValidation.cs" />
+    <Compile Include="Services\CSVRead.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FindCSVFiles.cs" />
+    <Compile Include="Services\FindCSVFiles.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

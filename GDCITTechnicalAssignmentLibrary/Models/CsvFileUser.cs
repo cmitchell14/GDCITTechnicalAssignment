@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
+
 namespace GDCITTechnicalAssignmentLibrary
 {
     public class CsvFileUser
     {
         //Properties
-        public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         [EmailAddress]
@@ -22,9 +22,8 @@ namespace GDCITTechnicalAssignmentLibrary
 
         }
 
-        public CsvFileUser(int id, string firstName, string lastName, string email)
+        public CsvFileUser( string firstName, string lastName, string email)
         {
-            ID = id;
             FirstName = firstName;
             LastName = lastName;
             Email = email;
@@ -36,26 +35,24 @@ namespace GDCITTechnicalAssignmentLibrary
             return $"User: {FirstName} {LastName} \nEmail: {Email}\n";
         }
 
-        //Method for Email Validation
-        public bool ValidateEmails()
+        //Method for Email Validation.  Created for convenience in use of an instance method.  Ex. user.ValidateEmail()
+        public bool ValidateEmail()
         {
-            try
+            //Early exit if null or empty string for Email.
+            if (String.IsNullOrEmpty(Email))
             {
-                EmailAddressAttribute userEmail = new EmailAddressAttribute();
-                if (userEmail.IsValid(Email))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return false;
             }
-            catch (Exception ex)
+
+            EmailAddressAttribute userEmail = new EmailAddressAttribute();
+            if (userEmail.IsValid(Email))
             {
-                throw ex;
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
-
     }
 }
