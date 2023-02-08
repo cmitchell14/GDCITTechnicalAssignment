@@ -2,11 +2,6 @@
 Technical Assignment
 Technical Assignment
 
-Develop a solution based upon the requirements and details below.
-When completed, check the code into your repository of choice (GitHub tends to be the most
-popular).
-
-Submit the link to the repository back to your recruiter.
 Application Requirements
 
 1. Create a .NET console application that:
